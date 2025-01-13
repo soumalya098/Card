@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Birthday Card</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        /* Hide an element with a specific id or class */
+        .hidden {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="card">
+        <div class="cover" id="cover">
+            <h1>𝐇ᴀᴘᴘʏ 𝐁ɪʀᴛʜᴅᴀʏ 𝐓ᴀɴɪ❤️</h1>
+            <div class="photos">
+                <img src="image1.png" alt="Photo 1" class="rectangle-photo">
+            </div>
+        </div>
+        <div class="inside" id="inside">
+            <img src="image.png" alt="Birthday Photo" class="photo">
+            <p class="message">ʜᴀᴘᴘʏ ʙɪʀᴛʜᴅᴀʏ ᴍᴏᴛᴋɪ......ʜᴀᴍᴇsᴀ ᴋʜᴜsʜ ʀʜᴏ ᴀɴᴅ ᴛᴀʀᴀᴋᴋɪ ᴋʀᴛᴇ ʀʜᴏ . ᴀᴘᴋɪ sᴀʀɪ ᴅʀᴇᴀᴍs ғᴜʟʟғɪʟʟ ʜᴏᴊᴀʏᴇ ᴀɴᴅ ᴀᴘ ʙʜᴛ ᴀɢᴇ ᴊᴀᴏ ᴀɴᴅ ᴀᴘᴋᴏ ᴅʜᴇʀ sᴀʀɪ ᴋʜᴜsʜɪʏᴀ ᴍɪʟᴇ ᴀɴᴅ ᴀᴘ ʜᴀᴍᴇsᴀ sᴍɪʟᴇ ᴋʀᴛᴇ ʀʜᴇ . ᴀᴘᴋᴀ ɪɪᴛ ᴋᴀ ᴅʀᴇᴀᴍs ᴘᴜʀᴀ ʜᴏᴊᴀʏᴇ ᴀɴᴅ ᴀᴘᴋᴇ ʙᴏᴀʀᴅs ʙʜɪ ʜᴛ ᴀᴄʜᴇ ᴊᴀʏᴇ , ʙʜᴀɢᴡᴀɴ ᴀᴘ ᴘᴇʀ ʜᴀᴍᴇsᴀ ᴋʀɪᴘᴀ ʙᴀɴᴀʏᴇ ʀᴀᴋʜᴇ ❤️... </p>
+            <button class="next-btn">Next</button>
+        </div>
+        <div class="inside next-page" id="nextPage">
+            <img src="image2.png" alt="Another Birthday Photo" class="photo">
+            <p class="message">ᴛʜᴀɴᴋ ʏᴏᴜ sᴏ ᴍᴜᴄʜ ᴍᴇʀɪ ᴅᴏsᴛ ʙᴀɴᴇ ʀᴀʜᴇɴᴇ ᴋᴇ ʟɪᴀ.....sᴛᴀʏ ʜᴇᴀʟᴛʜʏ & ʙᴇ sᴀғᴇ .ᴇɴᴊᴏʏ ʏᴏᴜʀ ᴅᴀʏ ❤️</p>
+        </div>
+    </div>
+
+    <!-- Audio Player -->
+    <audio id="backgroundMusic" loop>
+        <source src="music.mp3" type="audio/mpeg">
+        Your browser does not support the audio element.
+    </audio>
+
+    <script>
+        // Play the audio once the page has loaded
+        document.addEventListener('DOMContentLoaded', function() {
+            var audio = document.getElementById('backgroundMusic');
+            audio.play().catch(function(error) {
+                console.log('Playback prevented:', error);
+                document.body.addEventListener('click', function() {
+                    audio.play();
+                }, { once: true });
+            });
+        });
+
+        // JavaScript to handle page flipping
+        document.getElementById('cover').addEventListener('click', function() {
+            document.querySelector('.card').classList.add('open');
+        });
+
+        document.querySelector('.next-btn').addEventListener('click', function() {
+            document.querySelector('.card').classList.add('show-next');
+        });
+    </script>
+</body>
+</html>
